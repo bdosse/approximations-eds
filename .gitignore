@@ -1,0 +1,13 @@
+# Ignoring temporary and recuperation files written by emacs
+*~
+\#*#
+
+# Ignoring object files
+*.o
+
+# Ignoring executable
+*.bin
+*.exe
+
+# Ignoring tex files
+tex/
