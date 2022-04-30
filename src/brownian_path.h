@@ -1,8 +1,6 @@
 #ifndef BROWNIAN_PATH_H
 #define BROWNIAN_PATH_H
 
-#include <math.h>
-
 
 extern double
 rand_normal(void);

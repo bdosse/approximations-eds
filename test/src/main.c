@@ -15,9 +15,9 @@
 #include <stdio.h>
 #include <time.h>
 
-#include "test_deterministic-integration.h"
+#include "test_deterministic_integration.h"
 #include "test_brownian.h"
-
+#include "test_numerical_approximation.h"
 
 int
 main(void)
@@ -94,6 +94,8 @@ main(void)
     fprintf(normal_f, "%d,%.5f\n", j, rand_normal());
   } /* end of for-loop */
 
+
+  printf("\t===\t\n");  
   
   fclose(triangle_f);
   fclose(schauder_f);
