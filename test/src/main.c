@@ -17,6 +17,7 @@
 
 #include "test_deterministic-integration.h"
 #include "test_brownian.h"
+#include "test_sds.h"
 
 
 int
@@ -98,6 +99,11 @@ main(void)
   fclose(triangle_f);
   fclose(schauder_f);
   fclose(normal_f);
+
+  test_generic_unit();
+  test_generic_array();
+  test_sds_unit();
+  test_sds_array();
   
   printf("======== END OF \"main.c\" PROGRAM ========\n");
 
