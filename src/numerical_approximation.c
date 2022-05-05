@@ -67,7 +67,7 @@ euler_maruyama_method(double max_time, unsigned int steps, double init,	\
   }
   
   double d_time = max_time / steps;
-  double *path = (double)calloc(steps + 1, sizeof(double));
+  double *path = malloc((steps + 1) * sizeof *path);
 
   double d_brownian;
 
@@ -133,7 +133,7 @@ milstein_method(double max_time, unsigned int steps, double init, \
   }
   
   double d_time = max_time / steps;
-  double *path = (double)calloc(steps + 1, sizeof(double));
+  double *path = malloc((steps + 1) * sizeof *path);
 
   double d_brownian;
   double milstein_term;
