@@ -1,5 +1,5 @@
 CC=gcc
-CFLAGS=-Wall -Wextra -Werror -Wfatal-errors -O
+CFLAGS=-Wall -Wextra -Werror -Wfatal-errors -std=c11
 LDFLAGS=-lm -L../../includes -lsds
 
 OUTPUTDIR=../bin/
