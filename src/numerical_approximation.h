@@ -13,13 +13,13 @@
  * License: see LICENSE file.
  */
 
-#ifndef NUMERCIAL_APPROXIMATION_H
+#ifndef NUMERICAL_APPROXIMATION_H
 #define NUMERICAL_APPROXIMATION_H
 
 
 extern double *
 euler_maruyama_method(double max_time, unsigned int steps, double init,	\
-		      double (*determ_func)(double time, double iter) \
+		      double (*determ_func)(double time, double iter),	\
 		      double (*stocha_func)(double time, double iter));
 extern double *
 milstein_method(double max_time, unsigned int steps, double init, \
