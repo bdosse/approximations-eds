@@ -1,19 +1,17 @@
 /*
- * Filename: test_deterministic-integration.c
+ * Filename: test_deterministic_integration.c
  *
  * Summary: testing some features of the project. See "Tests" section
  * in the README file for more details.
  *
- * Author: jovian <altjovian@netc.eu>
+ * Author: bdj <bdosse(at)student.uliege.be>
  *
  * Creation date: 2022-04-04
  *
  * License: see LICENSE file.
  */
 
-#include <stdio.h>
-
-#include "test_deterministic-integration.h"
+#include "test_deterministic_integration.h"
 
 
 double
