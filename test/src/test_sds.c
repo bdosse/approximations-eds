@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "../../src/sds.h"
+#include "../../src/libsds/sds.h"
 
 
 void

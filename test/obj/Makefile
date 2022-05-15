@@ -1,6 +1,6 @@
 CC=gcc
 CFLAGS=-Wall -Wextra -Werror -Wfatal-errors -O
-LDFLAGS=-lm -L../../obj -lsds
+LDFLAGS=-lm -L../../includes -lsds
 
 OUTPUTDIR=../bin/
 OBJ=$(wildcard *.o)

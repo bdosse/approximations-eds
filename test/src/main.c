@@ -3,7 +3,7 @@
  *
  * Summary: main testing file.
  *
- * Author: jovian <altjovian@netc.eu>
+ * Author: bdj <bdosse(at)student.uliege.be>
  *
  * Creation date: 2022-04-18
  *
@@ -18,92 +18,98 @@
 #include "test_deterministic-integration.h"
 #include "test_brownian.h"
 #include "test_sds.h"
+#include "test_data_manipulation.h"
 
 
 int
 main(void)
 {
-  srand((unsigned int)time(0));
+  /* srand((unsigned int)time(0)); */
 
-  double testing_values[12] = {0.0, -5.0, 18.0, sqrt(2),\
-    M_PI, 0.00001, 1.0/16.0, 1.0/2048.0, 1.0, 0.6, 0.99999, M_E / 3};
+  /* double testing_values[12] = {0.0, -5.0, 18.0, sqrt(2),\ */
+  /*   M_PI, 0.00001, 1.0/16.0, 1.0/2048.0, 1.0, 0.6, 0.99999, M_E / 3}; */
 
-  FILE *triangle_f, *schauder_f, *normal_f;
+  /* FILE *triangle_f, *schauder_f, *normal_f; */
 
   
   printf("===== BEGINNING OF \"main.c\" PROGRAM =====\n");
 
-  triangle_f = fopen("triangle.csv", "w");
-  schauder_f = fopen("schauder.csv", "w");
-  normal_f = fopen("normal.csv", "w");
+  /* triangle_f = fopen("triangle.csv", "w"); */
+  /* schauder_f = fopen("schauder.csv", "w"); */
+  /* normal_f = fopen("normal.csv", "w"); */
 
-  if (triangle_f == NULL \
-      || schauder_f == NULL \
-      || normal_f == NULL) {
-    printf("I/O Error. Abort.\n");
-    return -1;
-  }
+  /* if (triangle_f == NULL \ */
+  /*     || schauder_f == NULL \ */
+  /*     || normal_f == NULL) { */
+  /*   printf("I/O Error. Abort.\n"); */
+  /*   return -1; */
+  /* } */
   
-  printf("Testing function: triangle(double) -> double\n");
-  printf("Tested Value\t||\tTriangle\n");
+  /* printf("Testing function: triangle(double) -> double\n"); */
+  /* printf("Tested Value\t||\tTriangle\n"); */
 
-  fprintf(triangle_f, "Tested Value,Result\n");
+  /* fprintf(triangle_f, "Tested Value,Result\n"); */
   
-  for (unsigned int j = 0; j < 12; ++j) {
-    printf("%+.5f\t||\t%+.5f\n", testing_values[j], triangle(testing_values[j]));
+  /* for (unsigned int j = 0; j < 12; ++j) { */
+  /*   printf("%+.5f\t||\t%+.5f\n", testing_values[j], triangle(testing_values[j])); */
     
-    fprintf(triangle_f, "%.5f,%.5f\n", testing_values[j], \
-	    triangle(testing_values[j]));
-  } /* end of for-loop */
+  /*   fprintf(triangle_f, "%.5f,%.5f\n", testing_values[j], \ */
+  /* 	    triangle(testing_values[j])); */
+  /* } /\* end of for-loop *\/ */
 
   
-  printf("\t===\t\n");
+  /* printf("\t===\t\n"); */
 
   
-  printf("Testing function: ");
-  printf("schauder_basis(unsigned int, unsigned int, double) -> double\n");
-  printf("Tested value\t||\tSchauder\n");
+  /* printf("Testing function: "); */
+  /* printf("schauder_basis(unsigned int, unsigned int, double) -> double\n"); */
+  /* printf("Tested value\t||\tSchauder\n"); */
 
-  fprintf(schauder_f, "Scale,Shift,Tested Value,Result\n");
+  /* fprintf(schauder_f, "Scale,Shift,Tested Value,Result\n"); */
   
-  for (unsigned int j = 0; j < 12; ++j) {
+  /* for (unsigned int j = 0; j < 12; ++j) { */
 
-    for (unsigned int k = 0; k < pow(2, j); ++k) {
+  /*   for (unsigned int k = 0; k < pow(2, j); ++k) { */
 
-      for (unsigned int l = 0; l < 12; ++l) {
-	printf("(%d,%d,%+.5f)\t||\t%+.5f\n", j, k, \
-	       testing_values[l], schauder_basis(j, k, testing_values[l]));
-	fprintf(schauder_f, "%d,%d,%.5f,%.5f\n", j, k, \
-		testing_values[l], schauder_basis(j, k, testing_values[l]));
-      } /* end of third level for-loop */
+  /*     for (unsigned int l = 0; l < 12; ++l) { */
+  /* 	printf("(%d,%d,%+.5f)\t||\t%+.5f\n", j, k, \ */
+  /* 	       testing_values[l], schauder_basis(j, k, testing_values[l])); */
+  /* 	fprintf(schauder_f, "%d,%d,%.5f,%.5f\n", j, k, \ */
+  /* 		testing_values[l], schauder_basis(j, k, testing_values[l])); */
+  /*     } /\* end of third level for-loop *\/ */
       
-    } /* end of second level for-loop */
+  /*   } /\* end of second level for-loop *\/ */
     
-  } /* end of first level for-loop */
+  /* } /\* end of first level for-loop *\/ */
 
   
-  printf("\t===\t\n");
+  /* printf("\t===\t\n"); */
 
   
-  printf("Testing function: rand_normal(void) -> double\n");
-  printf("Iteration\t||\tValue\n");
+  /* printf("Testing function: rand_normal(void) -> double\n"); */
+  /* printf("Iteration\t||\tValue\n"); */
 
-  fprintf(normal_f, "Iteration,Value\n");
+  /* fprintf(normal_f, "Iteration,Value\n"); */
   
-  for (unsigned int j = 0; j < 10000; ++j) {
-    printf("%d\t||\t%+.5f\n", j, rand_normal());
-    fprintf(normal_f, "%d,%.5f\n", j, rand_normal());
-  } /* end of for-loop */
+  /* for (unsigned int j = 0; j < 10000; ++j) { */
+  /*   printf("%d\t||\t%+.5f\n", j, rand_normal()); */
+  /*   fprintf(normal_f, "%d,%.5f\n", j, rand_normal()); */
+  /* } /\* end of for-loop *\/ */
 
   
-  fclose(triangle_f);
-  fclose(schauder_f);
-  fclose(normal_f);
+  /* fclose(triangle_f); */
+  /* fclose(schauder_f); */
+  /* fclose(normal_f); */
 
+  /* Testing libsds functions */
   test_generic_unit();
   test_generic_array();
   test_sds_unit();
   test_sds_array();
+
+  /* Testing data manipulation functions */
+  test_format_string_from_sds();
+  test_print_sds_in_csv();
   
   printf("======== END OF \"main.c\" PROGRAM ========\n");
 
