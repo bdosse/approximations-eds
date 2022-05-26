@@ -1,13 +1,13 @@
 CC=gcc
-CFLAGS=-Wall -Wextra -Werror -Wfatal-errors
-LDFLAGS=-lm
+CFLAGS=-Wall -Wextra -Werror -Wfatal-errors -std=c11
+LDFLAGS=-L../libsds/ -lm -lsds
 
 OUTPUTDIR=../bin/
 OBJ=$(wildcard *.o)
-TARGET=brownian_path.exe
+TARGET=compute_approximation.exe
 
 
 all: $(TARGET)
 
-brownian_path.exe: $(OBJ)
+$(TARGET): $(OBJ)
 	$(CC) $(CFLAGS) -o $(OUTPUTDIR)$@ $^ $(LDFLAGS)

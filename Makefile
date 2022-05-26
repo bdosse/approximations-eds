@@ -3,12 +3,13 @@ OBJDIR=obj/
 SRCTESTDIR=test/src/
 OBJTESTDIR=test/obj/
 
-TARGET=brownian_path
+TARGET=exe
 
+.PHONY: all
 
 all: $(TARGET)
 
-brownian_path: object
+exe: object
 	make -C $(OBJDIR)
 
 object:
@@ -30,4 +31,4 @@ clean:
 	rm -rf obj/*.o test/obj/*.o
 
 mrproper: clean
-	rm -rf bin/*.exe test/bin/*.exe
+	rm -rf bin/* test/bin/*

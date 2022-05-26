@@ -1,5 +1,5 @@
 CC=gcc
-CFLAGS=-Wall -Wextra -Werror -Wfatal-errors
+CFLAGS=-Wall -Wextra -Werror -Wfatal-errors -std=c11
 
 SRC=$(wildcard *.c)
 OBJ=$(SRC:.c=.o)

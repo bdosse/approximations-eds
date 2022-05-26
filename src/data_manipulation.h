@@ -3,9 +3,10 @@
 
 #include <stdio.h>
 
-#include "libsds/sds.h"
+#include "includes/libsds.h"
 
 
+typedef enum {NULL_FILE_DESCRIPTOR=-512} data_state;
 typedef enum {SINGLE_SPACE=1, DOUBLE_SPACE, COMMA, SEMICOLON} csv_format;
 
 int

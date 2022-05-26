@@ -18,13 +18,9 @@
 
 
 extern double *
-euler_maruyama_method(double max_time, unsigned int steps, double init,	\
+euler_maruyama_method(double max_time, double d_time, double init,	\
 		      double (*determ_func)(double time, double iter),	\
 		      double (*stocha_func)(double time, double iter));
-extern double *
-milstein_method(double max_time, unsigned int steps, double init, \
-		double (*determ_func)(double iter), \
-		double (*stocha_func)(double iter));
 
 
 #endif /* NUMERICAL_APPROXIMATION_H */

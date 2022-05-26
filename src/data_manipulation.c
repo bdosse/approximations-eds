@@ -84,9 +84,9 @@ print_sds_in_csv(FILE *output, csv_format format, sds *atom)
    * Print the content stored in a valid sds atom into a file,
    * following chosen CSV format.
    */
-
   if (output != NULL)
   {
+    char *fs_sds = format_string_from_sds(atom);
     generic_t atom_type = atom->type;
     
     char sep[3];
@@ -115,31 +115,33 @@ print_sds_in_csv(FILE *output, csv_format format, sds *atom)
       break;
     } /* end of switch-condition */
 
-    if (atom_type == UNIT && format_string_from_sds(atom) != NULL)
+      
+    if (atom_type == UNIT && fs_sds != NULL)
     {
       data_t data_type = (atom->unit).type;
 
       switch (data_type)
       {
       case INT:
-	fprintf(output, format_string_from_sds(atom), (atom->unit)._int);
+	fprintf(output, fs_sds, (atom->unit)._int);
 	break;
 
       case UINT:
-	fprintf(output, format_string_from_sds(atom), (atom->unit)._uint);
+	fprintf(output, fs_sds, (atom->unit)._uint);
 	break;
 
       case DOUBLE:
-	fprintf(output, format_string_from_sds(atom), (atom->unit)._double);
+	fprintf(output, fs_sds, (atom->unit)._double);
 	break;
       } /* end of switch-condition */
     
       fprintf(output, sep);
-      
+
+      free(fs_sds);
       return fprintf(output, "\n");
     } /* end of if-condition */
 
-    if (atom_type == ARRAY && format_string_from_sds(atom) != NULL)
+    if (atom_type == ARRAY && fs_sds != NULL)
     {
       data_t data_type = (atom->array).type;
 
@@ -148,7 +150,7 @@ print_sds_in_csv(FILE *output, csv_format format, sds *atom)
       case INT:
 	for (unsigned int j = 0; j < (atom->array).size; ++j)
 	{
-	  fprintf(output, format_string_from_sds(atom), (atom->array)._int[j]);
+	  fprintf(output, fs_sds, (atom->array)._int[j]);
 	  fprintf(output, sep);
 	}
 	break;
@@ -156,7 +158,7 @@ print_sds_in_csv(FILE *output, csv_format format, sds *atom)
       case UINT:
 	for (unsigned int j = 0; j < (atom->array).size; ++j)
 	{
-	  fprintf(output, format_string_from_sds(atom), (atom->array)._uint[j]);
+	  fprintf(output, fs_sds, (atom->array)._uint[j]);
 	  fprintf(output, sep);
 	}
 	break;
@@ -164,18 +166,19 @@ print_sds_in_csv(FILE *output, csv_format format, sds *atom)
       case DOUBLE:
 	for (unsigned int j = 0; j < (atom->array).size; ++j)
 	{
-	  fprintf(output, format_string_from_sds(atom),
-		  (atom->array)._double[j]);
+	  fprintf(output, fs_sds, (atom->array)._double[j]);
 	  fprintf(output, sep);
 	}
 	break;
       } /* end of switch-condition */
-    
+
+      free(fs_sds);
       return fprintf(output, "\n");
     } /* end of if-condition */
-    
-    return -2;
+
+    free(fs_sds);
+    return SDS_NULL_FORMAT_STRING;
   } /* end of if-condition */
 
-  return -1;
+  return NULL_FILE_DESCRIPTOR;
 } /* end of store_in_csv function */

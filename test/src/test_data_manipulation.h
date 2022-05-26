@@ -13,10 +13,16 @@
 #ifndef TEST_DATA_MANIPULATION_H
 #define TEST_DATA_MANIPULATION_H
 
+#include <stdio.h>
+#include "../../src/data_manipulation.h"
+#include "../../src/includes/libsds.h"
+
+
 extern void
 test_format_string_from_sds(void);
 
 extern void
 test_print_sds_in_csv(void);
+
 
 #endif /* TEST_DATA_MANIPULATION_H */

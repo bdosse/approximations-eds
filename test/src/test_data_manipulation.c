@@ -16,11 +16,9 @@
  */
 
 #include <stdlib.h>
-#include <stdio.h>
 #include <string.h>
 
-#include "../../src/data_manipulation.h"
-#include "../../src/libsds/sds.h"
+#include "test_data_manipulation.h"
 
 
 static char *
@@ -78,7 +76,7 @@ format_string_from_sds(sds *atom)
 } /* end of sds_format_string function */
 
 
-int
+static int
 print_sds_in_csv(FILE *output, csv_format format, sds *atom)
 {
   /*
