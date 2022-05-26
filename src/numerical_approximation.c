@@ -7,10 +7,6 @@
  * Implements Euler-Maruyama scheme to give strong pathwise
  * approximation of an Ito process.
  *
- * TODO: add other scheme, like Milstein, Runge-Kutta, and so on. One
- * could find a nice way to implement strong Taylor-Ito
- * approximations.
- *
  * Author: bdj <bdosse(at)student.uliege.be>
  *
  * Creation date: 2022-04-30

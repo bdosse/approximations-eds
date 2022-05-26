@@ -2,9 +2,7 @@
  * Filename: numerical_approximation.h
  *
  * Summary: defines the numerical methods to give pathwise
- * approximation of stochastic differential equation's solutions. More
- * info can be found in the section "Approximations trajectorielles"
- * of the course notes.
+ * approximation of stochastic differential equation's solutions.
  *
  * Author: bdj <bdosse(at)student.uliege.be>
  *

@@ -3,9 +3,8 @@
  *
  * Summary: implements basic function to store and plot data.
  *
- * Provides a function to store data from an array to a CSV file, and
- * a function to plot data from an 1-dimensional or a 2-dimensional
- * array using gnuplot.
+ * Provides a function to store data from an array to a CSV file using
+ * the libsds library.
  *
  * Author: bdj <bdosse(at)student.uliege.be>
  *

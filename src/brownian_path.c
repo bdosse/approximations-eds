@@ -2,13 +2,12 @@
  * Filename: brownian_path.c
  * 
  * Summary: This file contains everything needed in order to construct
- * a brownian path using an Haar basis and a Faber-Schauder
- * system. Since this construction needs standard normal random
- * variable, we define a function computing a random number following
- * a standardized normal distribution thanks to the Box-Muller
- * transform.
+ * a brownian path. Since this construction needs standard normal
+ * random variable, we define a function computing a random number
+ * following a standardized normal distribution thanks to the
+ * Box-Muller transform.
  *
- * Author: bdj <bdosse@student.uliege.be>
+ * Author: bdj <bdosse(at)student.uliege.be>
  *
  * Creation: 2022-04-03
  *
@@ -54,7 +53,8 @@ brownian_path(unsigned int iterations)
 {
   /*
    * The definition of a brownian motion gives a naive way to compute
-   * a brownian path. We need numbers following a gaussian.
+   * a brownian path. We need numbers following a gaussian
+   * distribution.
    */
   
   double step = 0;

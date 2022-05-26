@@ -1,3 +1,16 @@
+/*
+ * Filename: data_manipulation.h
+ *
+ * Summary: defines what is needed to store the data produced during
+ * the simulation in a CSV file.
+ *
+ * Author: bdj <bdosse(at)student.uliege.be>
+ *
+ * Creation date: 2022-04-30
+ *
+ * License: see LICENSE file.
+ */
+
 #ifndef DATA_MANIPULATION_H
 #define DATA_MANIPULATION_H
 

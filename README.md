@@ -1,9 +1,7 @@
 # Stochastic Differential Equation: Approximations Method
 
-This project present some approximation for solving famous stochastic
-differential equations. The first methods used are the Euler-Maruyama
-scheme and the Milstein scheme following the constructions given by
-P. Kloeden and E. Platen[^1].
+This project implements the Euler-Maruyama scheme to approximate the
+true solution of an Ito stochastic differential equation (SDE).
 
 ## Building
 
@@ -30,18 +28,30 @@ make
 Start the calculation:
 ```
 cd bin/
-./compute_solution.exe
+./compute_approximation.exe
 ```
 
-This project may be used to approximate the solution of some simple
-enough SDE. Details can be found in the "References" section.
+Without any modification of the source file, the program will compute
+the pathwise approximation of an Ito process which is solution of the
+Ito SDE:
 
-## Equation
+$$ dX_t = X_tdt + X_tdW_t $$
 
-By default, the method used by this project is the Milstein
-scheme. The program tries to solve the Ornstein–Uhlenbeck equation:
+where $W_t$ is a standard Wiener process. The data are stored in the
+`./data/data_1.csv` file. The file may be imported in any data
+manipulation program like `R` or `LibreOffice Calc`.
 
-![equation](https://bit.ly/3MlGx98)
+
+## Configuration
+
+To configure this program, you need to modify the `config.h` file in
+the `src` folder, and recompile the program.
+
+The configuration file describes each variable in a meaningful way, so
+read the comments carefully before any modification. In particular, it
+is in the `config.h` file that you define the functions of your Ito
+SDE.
+
 
 ## Debug, cleaning, etc.
 
@@ -63,13 +73,27 @@ It is possible to get rid of every generated files by issuing:
 make mrproper
 ```
 
+
+## How to help?
+
+There are things I'm unable to do at the moment. Here is a list
+of some of them:
+
+- [ ] Implement the Milstein scheme (with numerical differentiation
+      utility)
+- [ ] Implement a Runge-Kutta scheme (is there something better than
+      second strong order of convergence?)
+- [ ] Implement something to play with Ito-Taylor expansions
+- [ ] Connection with a plotting software like gnuplot
+
+
 ***
 
 ## References
 
-[^1]: KLOEDEN, Peter E. and Eckhard PLATEN. *Numerical Solution of
-    Stochastic Differential Equations*. 1st ed. Vol. 23. Berlin :
-    Springer, 1992. XXXVI, 636 p. (Applications of Mathematics). isbn
-    978-3-662-12616-5
+KLOEDEN, Peter E. and Eckhard PLATEN. *Numerical Solution of
+	Stochastic Differential Equations*. 1st ed. Vol. 23. Berlin :
+	Springer, 1992. XXXVI, 636 p. (Applications of Mathematics). ISBN
+	978-3-662-12616-5
 
 
