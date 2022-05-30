@@ -40,6 +40,10 @@ contains time information, whereas the second contains position
 information. The third and optional one contains the position
 according to a reference process.
 
+A file named `calculation.R` computes empirical means and deviation of
+the absolute error at time $T$ ($T$ being the time boundary) for given
+datasets.
+
 ## Configuration
 
 To configure this program, you need to modify the `config.h` file in
