@@ -12,14 +12,6 @@ git clone https://github.com/bdosse-jovian/approximations-eds.git
 cd approximations-eds
 ```
 
-[Optional] Make sure everything is OK by compiling unitary test:
-```
-make test
-cd test/bin/
-./functional_test.exe
-cd ../../
-```
-
 Build the project:
 ```
 make
@@ -32,15 +24,21 @@ cd bin/
 ```
 
 Without any modification of the source file, the program will compute
-the pathwise approximation of an Ito process which is solution of the
-Ito SDE:
+the pathwise approximation of an Ito process over the $[0, 1]$ time
+interval. The process is solution of the Ito SDE:
 
-$$ dX_t = X_tdt + X_tdW_t $$
+$$ dX_t = -X_tdt + dW_t $$
 
 where $W_t$ is a standard Wiener process. The data are stored in the
 `./data/data_1.csv` file. The file may be imported in any data
-manipulation program like `R` or `LibreOffice Calc`.
+manipulation program like `R` or `LibreOffice Calc`. The precision is,
+by default, set to $2^{-7}$.
 
+The CSV file has no header line, and two (or three, see the `COMPARE`
+directive in `config.h` for more details) columns. The first column
+contains time information, whereas the second contains position
+information. The third and optional one contains the position
+according to a reference process.
 
 ## Configuration
 
@@ -85,7 +83,8 @@ of some of them:
       second strong order of convergence?)
 - [ ] Implement something to play with Ito-Taylor expansions
 - [ ] Connection with a plotting software like gnuplot
-
+- [ ] Compute pathwise approximations and reference process given an
+      array of seed for the pseudo-random number generator
 
 ***
 

@@ -64,7 +64,7 @@ brownian_path(unsigned int iterations)
    * Let h > 0; since B(t + h) - B(t) \sim N(0, h), it follows that
    * B(t + h) = B(t) + \delta where \delta \sim N(0, h). 
    *
-   * Implementation : \delta = h * rand_normal
+   * Implementation : \delta = \sqrt(h) * rand_normal
    */
   
   if (path != NULL) {
