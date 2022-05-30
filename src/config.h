@@ -189,7 +189,7 @@ initial_condition(void)
  *
  * Default value: STEP_PRECISION
  */
-#define BROWNIAN_PRECISION STEP_PRECISION
+#define BROWNIAN_PRECISION pow(2, -10)
 
 
 /*
@@ -251,7 +251,7 @@ initial_condition(void)
  *
  * Default value: commented
  */
-//#define COMPARE
+#define COMPARE
 
 
 /*
@@ -275,8 +275,7 @@ reference_process(double *brownian_motion)
   double *path = malloc(steps * sizeof *path);
   
   double *integral = deterministic_ito_integral(BROWNIAN_PRECISION, TIME_BOUND,
-						brownian_motion,
-						&__custom_exp);
+						brownian_motion, &__custom_exp);
 
   if (path != NULL)
   {
@@ -286,11 +285,10 @@ reference_process(double *brownian_motion)
       path[j] *= initial_condition() + integral[j];
     }
   }
-  free(integral);
 
+  free(integral);
   return path;
 }
-
 
 
 #endif /* _CONFIG_H */
