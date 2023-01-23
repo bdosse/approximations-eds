@@ -144,7 +144,7 @@ main(void)
   printf("Number of simulation:   %d\n", iter);
 
   #ifdef USE_TIME
-  printf("Seed:                   Time based\n");
+  printf("Seed:                   %d (Time based)\n", PRNG_SEED);
   #else
   printf("Seed:                   %d\n", PRNG_SEED);
   #endif
@@ -182,7 +182,7 @@ main(void)
   if (storage == NULL)
   {
     #ifndef SILENT
-    printf("Fatal:   Not enough space (heap) to allocate for storage utility.");
+    printf("Fatal:   Not enough (heap) space to allocate to storage utility.");
     #endif
     return CANNOT_ALLOCATE_SDS;
   }

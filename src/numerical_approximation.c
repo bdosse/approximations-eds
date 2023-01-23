@@ -101,8 +101,8 @@ deterministic_ito_integral(double precision, double bound,
 {
   /*
    * Integration is made over the interval [0, bound], so there are
-   * exactly floor(bound /precision) steps to perform. Thus,
-   * brownian_motion must a an array of size at least equal to
+   * exactly floor(bound / precision) steps to perform. Thus,
+   * brownian_motion must be an array of size at least equal to
    * floor(bound/precision).
    */
 
@@ -124,7 +124,7 @@ deterministic_ito_integral(double precision, double bound,
   } /* end of if-condition */
 
   return integral;
-} /* end of riemannian_ito_integral function */
+} /* end of deterministic_ito_integral function */
 
 
 double *

@@ -14,6 +14,10 @@
  * License: see LICENSE file.
  */
 
+/*
+ * !!! EDIT ANYTHING IN THIS BLOCK AT YOUR OWN RISK !!!
+ */
+
 #ifndef _CONFIG_H
 #define _CONFIG_H
 
@@ -142,6 +146,7 @@ stochastic_term(double time, double pos)
 /*
  * Initial condition.
  *
+
  * Since it may be a random variable, it is implemented as a function.
  *
  * Default: function returning 1.0
@@ -286,7 +291,19 @@ reference_process(double *brownian_motion)
     }
   }
 
-  free(integral);
+  /* free(integral); */
+
+  /* if (path != NULL) */
+  /* { */
+  /*   path[0] = initial_condition(); */
+    
+  /*   for (unsigned int j = 1; j < steps; ++j) */
+  /*   { */
+  /*     path[j] = path[j - 1] * exp((brownian_motion[j] - brownian_motion[j - 1])); */
+  /*   } */
+  /* } */
+
+  
   return path;
 }
 

@@ -25,10 +25,12 @@ for (i in 2:batches)
     abs_err <- c(abs_err, abs(data[T, 3] - data[T, 2]))
     
     # If we want to produce a plot, here's what we need:
-    #plot(x = data[,1], y = data[,3], 
-    #     type = 'l', 
-    #     xlab = "Temps", ylab = "Position")
-    #lines(x = data[,1], y = data[,2], type = 'l', col = 'red')
+    jpeg(paste(dirs[i], "/", "plot", j, ".jpg", sep=""))
+    plot(x = data[,1], y = data[,3], 
+         type = 'l', 
+         xlab = "Temps", ylab = "Position")
+    lines(x = data[,1], y = data[,2], type = 'l', col = 'red')
+    dev.off()
   }
   approx <- c(approx, 1/N * sum(abs_err))
 }

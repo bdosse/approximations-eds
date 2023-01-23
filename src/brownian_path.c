@@ -18,7 +18,7 @@
 #include <math.h>
 
 #include "brownian_path.h"
-
+#include "config.h"
 
 double
 rand_normal(void)
@@ -49,7 +49,7 @@ rand_normal(void)
 
 
 double *
-brownian_path(unsigned int iterations)
+brownian_path(double max_time, double brownian_prec)
 {
   /*
    * The definition of a brownian motion gives a naive way to compute
@@ -58,11 +58,13 @@ brownian_path(unsigned int iterations)
    */
   
   double step = 0;
-  double *path = malloc(iterations * sizeof *path);
+  double length = max_time / brownian_prec;
+  double *path = malloc(length * sizeof *path);
 
   /*
-   * Let h > 0; since B(t + h) - B(t) \sim N(0, h), it follows that
-   * B(t + h) = B(t) + \delta where \delta \sim N(0, h). 
+   * Let h > 0, and denote the standard Brownian motion by B; since
+   * B(t + h) - B(t) \sim N(0, h), it follows that B(t + h) = B(t) +
+   * \delta where \delta \sim N(0, h).
    *
    * Implementation : \delta = \sqrt(h) * rand_normal
    */
@@ -71,12 +73,15 @@ brownian_path(unsigned int iterations)
 
     path[0] = 0; 
     
-    for (unsigned int i = 1; i < iterations; ++i) {
-      step = sqrt(1.0 / iterations) * rand_normal();
+    for (unsigned int i = 1; i < length; ++i) {
+      step = sqrt(brownian_prec) * rand_normal();
       path[i] = path[i - 1] + step; 
     } /* end of for-loop */
 
   } /* end of if-condition */
 
   return path;
-} /* end of intuitive_brownian_path function */
+  
+} /* end of brownian_path function */
+
+
